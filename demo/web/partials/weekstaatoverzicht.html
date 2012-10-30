@@ -1,0 +1,42 @@
+<div class="span10">
+    <label>Zoek</label>
+    <input type="text" placeholder="Zoek op weeknummer..." ng-model="omschrijvingFilter.weeknummer">
+    <input type="text" placeholder="Zoek op tijdregistraties..." ng-model="omschrijvingFilter.tijdRegistraties">
+    <table class="table">
+        <tr>
+            <th>Week#</th>
+            <th>Geboekte uren</th>
+            <th>Activiteiten</th>
+        </tr>
+        <tr ng-repeat="w in weekstaten | filter:omschrijvingFilter" ng-class="{info: (w.weeknummer == huidigWeeknummer)}">
+            <td><a href="" ng-click="toonWeekstaat(w)">Week {{w.weeknummer}}</a></td>
+            <td>{{berekenTotaal(w)}}</td>
+            <td>
+                <span ng-repeat="t in w.tijdRegistraties" ng-click="setNieuweActiviteit(t)" class="label label-info" style="margin-right: 1em;">{{t.code}}</span>
+            </td>
+        </tr>
+    </table>
+
+    <button class="btn btn-primary" ng-click="geefHuidigeWeekstaat()">Toon huidige weekstaat</button>
+    <div class="info" ng-hide="huidigeWeekstaat == undefined">
+        <h2>Huidige weekstaat [week {{huidigeWeekstaat.weeknummer}}]</h2>
+        <b>Tijd registraties</b>
+
+        <div class="row span10">
+            <label for="aantalUren" class="span1">Uren</label>
+            <label for="activiteit" class="span5">Activiteitomschrijving</label>
+        </div>
+        <div class="row span10" ng-repeat="t in huidigeWeekstaat.tijdRegistraties">
+            <div class="span1">{{t.uren}}</div>
+            <div class="span5">{{t.code}}</div>
+        </div>
+        <div class="row span10">
+            <form ng-submit="saveRegistratie()">
+                <input id="aantalUren" type="number" class="span1" placeholder="Aantal uren" required="required" ng-model="nieuweUren">
+                <input id="activiteit" type="text" class="span4" placeholder="Activiteit" ng-model="nieuweActiviteit" required="required">
+                <input type="reset" class="span1 btn btn-danger" value="reset">
+                <input type="submit" value="+" class="span1 btn btn-success">
+            </form>
+        </div>
+    </div>
+</div>

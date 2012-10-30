@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="timeControl">
+<head>
+    <link rel="stylesheet" href="main.css">
+    <script src="js/jquery/require-jquery.js" data-main="main"></script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="container" class="onzichtbaar">
+    <div class="row hero-unit">
+        <img src="images/clock.png" class="span3" style="float: left; height: 125px; width: 125px;">
+
+        <h1 class="span9">Manage your Time</h1>
+    </div>
+    <div class="row offset1" ng-view>
+
+    </div>
+    <div class="row offset1">
+        <blockquote>
+            <p>Demo code "Developing cloud friendly applications using JavaScript and REST" written by Teun Hakvoort</p>
+        </blockquote>
+    </div>
+</div>
+<div id="wait" class="offset5 span1">
+    <img src="images/animated.gif">
+</div>
+</body>
+</html>

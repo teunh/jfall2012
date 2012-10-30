@@ -1,0 +1,16 @@
+@import url(http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css);
+@import url(angular/angular-ui.css);
+@import url(js/bootstrap/css/bootstrap.css);
+@import url(js/bootstrap/css/bootstrap-responsive.css);
+
+.onzichtbaar {
+    display: none;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #777777;
+  margin: 40px 0px 70px;
+  text-align: center;
+}
